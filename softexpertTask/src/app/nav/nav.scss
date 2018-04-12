@@ -1,0 +1,162 @@
+// nav style
+/* import custom variables */
+@import "~scss/variables";
+
+/* import custom variables */
+@import "~scss/mixins";
+
+// desktop menu style
+.nav {
+	.container {
+		.navbar  {
+			.navbar-nav {
+				flex-direction: row;
+				li {
+					display: inline-block;
+					margin: 0px 20px;
+					a {
+						color: $dark_gray;
+						font-weight: bold;
+						text-transform: uppercase;
+					}
+				}
+			}
+			.text-right {
+				display: flex;
+				flex-direction: row;
+				> a, > div {
+					margin: 0px 10px;
+					color: $dark_gray;
+					cursor: pointer;
+			    	@include break-point-lower-than(991px) {
+			    		color: $white;
+			    	}
+				}
+			}
+			@include break-point-lower-than(991px) {
+				flex-direction: column;
+			}
+			img {
+				@include break-point-lower-than(991px) {
+					margin: 15px 0;
+				}
+			}
+		}
+		@include break-point-lower-than(991px) {
+			max-width: 100%;
+		}
+	}
+}
+
+// shopping cart style
+.shopping-cart {
+    position: relative;
+    .count {
+        position: absolute;
+        top: -15px;
+        color: $red;
+        font-weight: bold;
+        @include break-point-lower-than(991px) {
+            color: $white;
+        }
+    }
+    .cart-block {
+        display: none;
+        border-top: 3px solid $red;
+        background-color: $white;
+        min-width: 300px;
+        @include position(absolute, $right: 0, $top: 40px, $left: auto, $index: 1);
+        @include prefix(box-shadow, 0px 1px 7px rgba(0, 0, 0, .5));
+        > div {
+            padding: 10px 15px;
+        }
+        .cart-btn {
+            background-color: $blue_charcoal;
+            color: $white;
+            border-radius: 0;
+            outline: none;
+            @include break-point-lower-than(991px) {
+                color: $white;
+            }
+        }
+    }
+}
+
+// style class fixed (add to menu when scroll if screen larger than 767)
+.desktop-view {
+    &.fixed {
+        width: 100%;
+        background-color: $white;
+        @include position(fixed, $top: 0, $index: 99);
+        @include prefix(box-shadow, 0px 1px 7px rgba(0, 0, 0, .5));
+        img {
+            display: none;
+        }
+    }
+}
+.mobile-view {
+    &.fixed {
+            width: 100%;
+            @include position(fixed, $top: 0, $index: 99);
+            @include prefix(box-shadow, 0px 1px 7px rgba(0, 0, 0, .5)); 
+            .navbar-brand, form {
+            display: none;
+        }
+        .navbar-nav {
+            position: fixed;
+            top: 56px;
+            z-index: 99;
+            background-color: $white;
+            width: 100%;
+        }
+    }
+}
+
+.search {
+    .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+// manage visible of desktop and mobile menu
+.desktop-view {
+    @include break-point-lower-than(991px) {
+        display: none;
+    }
+}
+.mobile-view {
+    display: none;
+    width: 100%;
+    @include break-point-lower-than(991px) {
+        display: block;
+    }
+    .navbar-nav {
+        display: none;
+    }
+    .bar {
+        background-color: $red;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        a, .icon, .fa {
+            color: $white;
+        }
+    }
+    .navbar-brand {
+        display: block;
+    }
+    .navbar-nav {
+        li {
+            border-bottom: 1px solid $bg_gray;
+            a {
+                text-align: center;
+                color: $dark_gray;
+                font-weight: bold;
+                text-transform: uppercase;
+                
+            }
+        }
+    } 
+}
+

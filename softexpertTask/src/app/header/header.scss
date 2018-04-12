@@ -1,0 +1,66 @@
+// header style
+/* import custom variables */
+@import "~scss/variables";
+
+/* import custom variables */
+@import "~scss/mixins";
+
+#header {
+  background-color: $red;
+  color: $white;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  .dropdown-menu {
+    background-color: $blue_charcoal;
+    li {
+      padding: 5px 10px;
+      &:hover, &.current {
+        background-color: $red;
+      }
+    }
+  }
+  .map-link, .language-list, .currency-list, .sign-link {
+    cursor: pointer;
+  }
+  .fa, img {
+    margin-right: 5px;
+  }
+  .currency-list {
+    img {
+      margin-right: 6px;
+    }
+  }
+  .nav-left, .nav-right {
+      @include break-point-lower-than(991px) {
+            max-width: 100%;
+            flex: 0 0 100%;
+            text-align: center;
+            margin: 10px 0px;
+      }
+      @include break-point-lower-than(445px) {
+        flex-wrap: wrap;
+      }
+      li {
+        @include break-point-lower-than(445px) {
+          display: block;
+        }
+      }
+  }
+  .nav-right {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      > div {
+        margin-left: 15px;
+      }
+       @include break-point-lower-than(991px) {
+        justify-content: center;
+      }
+  }
+   @include break-point-lower-than(1024px) {
+        font-size: 14px;
+    }
+}

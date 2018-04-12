@@ -1,0 +1,65 @@
+/** custom mixins **/
+// prefixes
+@mixin prefix($attr, $val) {
+    -webkit-#{$attr}: $val;
+    -moz-#{$attr}: $val;
+    -ms-#{$attr}: $val;
+    -o-#{$attr}: $val;
+    #{$attr}: $val;
+}
+
+// keyframes
+@mixin keyframes( $animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// position
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null,$index: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $index;
+}
+
+// placeholder
+@mixin placeholder {
+     ::-webkit-input-placeholder {
+        @content
+    }
+     :-moz-placeholder {
+        @content
+    }
+     ::-moz-placeholder {
+        @content
+    }
+     :-ms-input-placeholder {
+        @content
+    }
+}
+
+//media queries
+@mixin break-point-lower-than($point) {
+    @media all and (max-width: $point) {
+        @content;
+    }
+}
+@mixin break-point-higher-than($point) {
+    @media all and (min-width: $point) {
+        @content;
+    }
+}
+
+

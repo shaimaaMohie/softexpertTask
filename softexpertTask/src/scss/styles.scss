@@ -1,0 +1,51 @@
+/*
+project Name: Fast food shop landing page
+project URI:
+Author: Shaimaa Mohie
+File Description: general styles and files imports
+*/
+
+/* import bootstrap */
+@import "~bootstrap/scss/bootstrap";
+
+/* import font-awesome */
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+/* import slick-carousel */
+@import "~slick-carousel/slick/slick";
+
+/* import custom variables */
+@import "~scss/variables";
+
+/* import custom mixins */
+@import "~scss/mixins";
+
+/* general styles */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+	outline: none;
+}
+.slick-arrow {
+    display: inline-block;
+    transform: translateY(-50%);
+    @include position(absolute, $top: 50%);
+    &.prev {
+    	left: 0;
+    }
+    &.next {
+    	right: 0;
+    }
+}
+.slick-slide img {
+	margin: 0 auto;
+}
+
+@include break-point-lower-than(991px) {
+	.container {
+	    max-width: 960px;
+	}
+}
